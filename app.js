@@ -32,18 +32,20 @@ function addPhrasetoDisplay (chosenPhrase) {
     }
 };
 
-function stub (clickedButton) {
+function checkLetter (clickedButton) {
     const checkLetter = document.querySelectorAll('li');
-    const match = null;
+    let match = null;
     for ( i = 0; i < checkLetter.length; i++) {
-        if ( checkLetter[i] == clickedButton ) {
-            li.className = "show";
-            match += clickedButton.textContent;
+        if ( checkLetter[i].textContent.toLowerCase() == clickedButton ) {
+            checkLetter[i].classList.add("show");
+            match += checkLetter[i];
+            console.log(match)
         }
+        
     }
-    return match;  
+    console.log(checkLetter[i]);
+    
 };
-
 
 
 addPhrasetoDisplay(getRandomPhraseAsArray(phrases));
