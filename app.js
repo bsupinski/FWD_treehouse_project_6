@@ -3,7 +3,6 @@ const phrase = document.getElementById('phrase');
 const overlay = document.getElementById('overlay');
 const resetBtn = document.querySelector('.btn__reset');
 const ul = document.querySelector('ul');
-const lives = document.querySelector('img').src="images/liveHeart.png";
 let missed = 0;
 const letterTest =[]
 
@@ -53,7 +52,6 @@ qwerty.addEventListener("click", (event)=> {
             const lives = document.querySelector('img').src="images/liveHeart.png";
             lives.src="images/lostHeart.png"
             missed++;
-
         }
     };
 
