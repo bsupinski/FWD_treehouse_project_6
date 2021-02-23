@@ -3,7 +3,8 @@ const phrase = document.getElementById('phrase');
 const overlay = document.getElementById('overlay');
 const resetBtn = document.querySelector('.btn__reset');
 const ul = document.querySelector('ul');
-const missed = 0;
+const lives = document.querySelector('img').src="images/liveHeart.png";
+let missed = 0;
 const letterTest =[]
 
 
@@ -38,14 +39,25 @@ function checkLetter (clickedButton) {
     for ( i = 0; i < checkLetter.length; i++) {
         if ( checkLetter[i].textContent.toLowerCase() == clickedButton ) {
             checkLetter[i].classList.add("show");
-            match += checkLetter[i];
-            console.log(match)
+            match = checkLetter[i].textContent;
         }
-        
     }
-    console.log(checkLetter[i]);
-    
+    return match;
 };
+
+qwerty.addEventListener("click", (event)=> {
+    if ( event.target.tagName == 'BUTTON'){
+        event.target.classList.add('chosen');
+        let letterCheck = checkLetter(event.target)
+        if ( letterCheck === null ){
+            const lives = document.querySelector('img').src="images/liveHeart.png";
+            lives.src="images/lostHeart.png"
+            missed++;
+
+        }
+    };
+
+})
 
 
 addPhrasetoDisplay(getRandomPhraseAsArray(phrases));
