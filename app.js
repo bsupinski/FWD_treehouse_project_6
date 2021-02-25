@@ -91,12 +91,12 @@ function checkWin() {
     const letter = document.getElementsByClassName('letter');
     const show = document.getElementsByClassName('show');
     if ( letter.length === show.length ) {
-        overlay.classList.add('win');
+        overlay.className = 'win';
         overlay.style.display='flex';
         overlay.firstChild.textContent="You win";
         resetBtn.textContent="Replay"
     }if( missed >=5 ){
-        overlay.classList.add('lose');
+        overlay.className = 'lose';
         overlay.style.display='flex';
         overlay.firstChild.textContent="You lose";
         resetBtn.textContent="Replay"
