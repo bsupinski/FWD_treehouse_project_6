@@ -3,6 +3,7 @@ const phrase = document.getElementById('phrase');
 const overlay = document.getElementById('overlay');
 const resetBtn = document.querySelector('.btn__reset');
 const ul = document.querySelector('ul');
+let lives = document.querySelectorAll('.tries img');
 let missed = 0;
 const letterTest =[]
 
@@ -15,9 +16,22 @@ resetBtn.addEventListener('click', ()=> {
     if ( resetBtn.textContent == 'Start Game' ){
     overlay.style.display='none';
     }if( resetBtn.textContent == 'Replay' ){
+        //reset keyboard
         overlay.style.display='none';
-        let chosen = document.getElementsByClassName('chosen');
-        chosen.classList.remove('chosen');
+        missed = 0
+        let chosen = document.querySelectorAll('.chosen');
+        for( let i=0; i > chosen.length; i++) {
+            chosen.classList.remove('chosen');
+        }
+        //reset letter overlay
+        let show = document.querySelectorAll('.show');
+        for( let i=0; i > show.length; i++) {
+            show.classList.remove('show');
+        }
+        //Heart img reset and missed count
+        for (let i = 0; i > lives.length; i++) {
+            lives.src="images/liveHeart.png"
+        }
     }
 });
 
@@ -62,7 +76,6 @@ qwerty.addEventListener("click", (event)=> {
         event.target.classList.add('chosen');
         let letterCheck = checkLetter(event.target)
         if ( letterCheck === null ){
-            const lives = document.querySelectorAll('.tries img');
             lives[missed].src="images/lostHeart.png"
             missed++;
         }
