@@ -8,7 +8,7 @@ let missed = 0;
 const letterTest =[]
 
 
-const phrases = ['Robin is best boy', 'Up up and away', 'To infinity and beyond', 'Pillow Pants', 'Lysterfiend'];
+const phrases = ['Robin', 'Batman', 'Justice League', 'Superman', 'Batgirl', 'Joker', 'Jason Todd', 'Dick Grayson', 'Wonder Woman', 'Harley Quinn'];
 
 
 //listen for the start button to be pressed
@@ -20,18 +20,21 @@ resetBtn.addEventListener('click', ()=> {
         overlay.style.display='none';
         missed = 0
         let chosen = document.querySelectorAll('.chosen');
-        for( let i=0; i > chosen.length; i++) {
-            chosen.classList.remove('chosen');
+        for( let i=0; i < chosen.length; i++) {
+            chosen[i].classList.remove('chosen');
         }
         //reset letter overlay
         let show = document.querySelectorAll('.show');
-        for( let i=0; i > show.length; i++) {
-            show.classList.remove('show');
+        for( let i=0; i < show.length; i++) {
+            show[i].classList.remove('show');
         }
         //Heart img reset and missed count
-        for (let i = 0; i > lives.length; i++) {
-            lives.src="images/liveHeart.png"
+        for (let i = 0; i < lives.length; i++) {
+            lives[i].src="images/liveHeart.png"
         }
+        //reset the phrase ul
+        ul.textContent='';
+        addPhrasetoDisplay(getRandomPhraseAsArray(phrases));
     }
 });
 
