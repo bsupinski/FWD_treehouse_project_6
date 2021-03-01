@@ -21,6 +21,7 @@ resetBtn.addEventListener('click', ()=> {
         missed = 0
         let chosen = document.querySelectorAll('.chosen');
         for( let i=0; i < chosen.length; i++) {
+            chosen[i].disabled = false;
             chosen[i].classList.remove('chosen');
         }
         //reset letter overlay
@@ -77,6 +78,7 @@ function checkLetter (clickedButton) {
 qwerty.addEventListener("click", (event)=> {
     if ( event.target.tagName === 'BUTTON' ){
         event.target.classList.add('chosen');
+        event.target.disabled = true;
         let letterCheck = checkLetter(event.target)
         if ( letterCheck === null ){
             lives[missed].src="images/lostHeart.png"
